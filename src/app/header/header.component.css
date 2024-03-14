@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@400;800&display=swap");
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -11,5 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 2rem;
+  gap: 4rem;
+}
+
+.app-name {
+  font-family: "Tangerine", cursive;
+  width: max-content;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #8b0000;
 }
