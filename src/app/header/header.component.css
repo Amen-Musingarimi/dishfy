@@ -45,17 +45,11 @@
   color: #4a0404;
   padding: 0.5rem;
   border-radius: 4px;
-}
-
-.dropdown-options {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  border: none;
+  cursor: pointer;
 }
 
 .dropdown-option {
   font-size: 1rem;
   font-weight: 500;
   color: #4a0404;
-
-  margin-bottom: 10px;
 }
