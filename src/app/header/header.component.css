@@ -23,3 +23,15 @@
   font-size: 1.8rem;
   color: #8b0000;
 }
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a0404;
+}
+
+.nav-link:hover {
+  padding: 1rem 2rem;
+  background-color: #c04000;
+  color: #fff;
+}
