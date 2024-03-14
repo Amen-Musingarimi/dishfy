@@ -5,7 +5,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem;
+  height: 4rem;
+  padding: 0 1rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -28,6 +29,7 @@
   font-size: 1rem;
   font-weight: 500;
   color: #4a0404;
+  height: 100%;
 }
 
 .nav-link:hover {
