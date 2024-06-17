@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 
@@ -8,7 +8,6 @@ import { RecipeService } from '../recipe.service';
   styleUrl: './recipe-detail.component.css'
 })
 export class RecipeDetailComponent {
-  @Input()
   recipe!: Recipe;
 
   constructor(private recipeService: RecipeService) {}
