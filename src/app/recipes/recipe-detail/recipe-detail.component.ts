@@ -22,6 +22,7 @@ export class RecipeDetailComponent {
     // const id = this.route.snapshot.params['id']; This will ot work as we're switching from recipe to recipe hence reactive method works.
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
+      this.recipe = this.recipeService.getRecipe(this.id);
     });
   }
 
