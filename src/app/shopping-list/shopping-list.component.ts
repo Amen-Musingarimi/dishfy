@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
 
@@ -9,13 +10,20 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent {
   ingredients!: Ingredient[];
+  private igChangedSub!: Subscription;
 
   constructor(private slService: ShoppingListService) {}
 
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();
-    this.slService.ingredientsChanged.subscribe((ingredients: Ingredient[]) => {
-      this.ingredients = ingredients;
-    });
+    this.igChangedSub = this.slService.ingredientsChanged.subscribe(
+      (ingredients: Ingredient[]) => {
+        this.ingredients = ingredients;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.igChangedSub.unsubscribe();
   }
 }
