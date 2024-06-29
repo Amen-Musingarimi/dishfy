@@ -27,6 +27,7 @@
             ngModel
             required
             #amount="ngModel"
+            [pattern]="'^[1-9]+[0-9]*$'"
           />
           <span class="help-block" *ngIf="!amount.valid && amount.touched"
             >Amount is required.</span
