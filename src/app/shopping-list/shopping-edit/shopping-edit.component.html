@@ -42,7 +42,7 @@
             style="margin-right: 0.5rem;"
             [disabled]="!shoppingListForm.valid"
           >
-            Add
+            {{ editMode ? "Update" : "Add" }}
           </button>
           <button
             class="btn btn-danger"
