@@ -16,6 +16,7 @@ export class ShoppingEditComponent {
   subscription!: Subscription;
   editMode = false;
   editedItemIndex!: number;
+  editedItem!: Ingredient;
 
   constructor(private slService: ShoppingListService) {}
 
@@ -24,6 +25,11 @@ export class ShoppingEditComponent {
       (index: number) => {
         this.editedItemIndex = index;
         this.editMode = true;
+        this.editedItem = this.slService.getIngredient(index);
+        this.shoppingForm.setValue({
+          name: this.editedItem.name,
+          amount: this.editedItem.amount
+        });
       }
     );
   }
