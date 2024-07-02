@@ -49,6 +49,11 @@ export class ShoppingEditComponent {
     this.shoppingForm.reset();
   }
 
+  onClear() {
+    this.shoppingForm.reset();
+    this.editMode = false;
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
