@@ -39,7 +39,12 @@ export class ShoppingEditComponent {
     const ingredientName = this.shoppingForm.value.name;
     const ingredientAmount = this.shoppingForm.value.amount;
     const newIngredient = new Ingredient(ingredientName, ingredientAmount);
-    this.slService.addIngredient(newIngredient);
+
+    if (this.editMode) {
+      this.slService.updateIngredient(this.editedItemIndex, newIngredient);
+    } else {
+      this.slService.addIngredient(newIngredient);
+    }
   }
 
   ngOnDestroy() {
