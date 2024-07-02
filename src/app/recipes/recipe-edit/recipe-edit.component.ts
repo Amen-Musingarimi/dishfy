@@ -27,6 +27,10 @@ export class RecipeEditComponent {
     });
   }
 
+  onSubmit() {
+    console.log(this.recipeForm);
+  }
+
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
