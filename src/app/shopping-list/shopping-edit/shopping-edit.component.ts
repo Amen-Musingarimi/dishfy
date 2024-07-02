@@ -45,6 +45,8 @@ export class ShoppingEditComponent {
     } else {
       this.slService.addIngredient(newIngredient);
     }
+    this.editMode = false;
+    this.shoppingForm.reset();
   }
 
   ngOnDestroy() {
