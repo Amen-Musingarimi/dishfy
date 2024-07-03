@@ -6,7 +6,7 @@ import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
-  styleUrl: './recipe-edit.component.css'
+  styleUrls: ['./recipe-edit.component.css']
 })
 export class RecipeEditComponent {
   id!: number;
@@ -15,20 +15,19 @@ export class RecipeEditComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private RecipeService: RecipeService
+    private recipeService: RecipeService
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
-      // console.log(this.editMode);
       this.initForm();
     });
   }
 
   onSubmit() {
-    console.log(this.recipeForm);
+    console.log(this.recipeForm.value);
   }
 
   onAddIngredient() {
@@ -51,10 +50,10 @@ export class RecipeEditComponent {
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescription = '';
-    let recipeIngredients = new FormArray([]);
+    let recipeIngredients = new FormArray<FormGroup>([]);
 
     if (this.editMode) {
-      const recipe = this.RecipeService.getRecipe(this.id);
+      const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
