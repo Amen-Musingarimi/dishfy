@@ -6,18 +6,27 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { Recipe } from './recipe.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { RecipeService } from './recipe.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipesResolverService {
-  constructor(private dataStorageService: DataStorageService) {}
+  constructor(
+    private dataStorageService: DataStorageService,
+    private recipeService: RecipeService
+  ) {}
 
-  resolve: ResolveFn<Observable<Recipe[]>> = (
+  resolve: ResolveFn<Recipe[]> = (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ) => {
-    return this.dataStorageService.fetchRecipes();
+    const recipes = this.recipeService.getRecipes();
+    if (recipes.length === 0) {
+      return this.dataStorageService.fetchRecipes();
+    } else {
+      return recipes;
+    }
   };
 }
